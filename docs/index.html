@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+         
+            <a-assets>
+                <img id="grass-texture" src="assets/grass.jpg">
+                <img id="grass-normal" src="assets/grass_norm.jpg">
+
+                <img id="sky" src="assets/nightSky.jpg">
+
+                <a-asset-item id="dementor" src="assets/Dementor/scene.gltf"></a-asset-item>
+                <a-asset-item id="explosion" src="assets/Explo/scene.gltf"></a-asset-item>
+                <a-asset-item id="hogwarts" src="assets/Hogwarts/scene.gltf"></a-asset-item>
+                <a-asset-item id="jukebox" src="assets/Jukebox/scene.gltf"></a-asset-item>
+                <a-asset-item id="snape" src="assets/Snape/scene.gltf"></a-asset-item>
+
+                <audio id="HarryPotterTheme" src="assets/harryPotterTheme.mp3" preload="auto"></audio>
+
+            </a-assets>
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+
+
+            <a-entity light="type: ambient; intensity: 0.4"></a-entity>
+
+            <a-entity
+                light="
+                    type: spot;
+                    intensitiy: 0.7;
+                    distance: 8;
+                    angle: 36;
+                    penumbra: 0.4;"
+                rotation="-90 0 0"
+                position="0 3 -8"></a-entity>
+            
+
+           
+
+            <a-sky src="#sky" ></a-sky>
+            
+            <a-plane
+                src="#grass-texture"
+                repeat="60 60"
+                normal-map="#grass-normal"
+                normal-repeat="60 60"
+                rotation="-90 0 0"
+                scale="400 400 1">
+            </a-plane>
+
+            <!-- Dementor-->
+
+            <a-gltf-model
+           
+            position="30 20 -80" 
+            src="#dementor"
+            scale="0.1 0.1 0.1"
+
+            animation="
+            property: rotation;
+            from: 0 0 0;
+            to: 0 360 0;
+            easing: linear;
+            dur: 5000;
+            loop: true;
+        "
+            ></a-gltf-model>
+
+             <!-- Dementor2-->
+
+             <a-gltf-model
+           
+             position="-60 30 -45" 
+             src="#dementor"
+             scale="0.1 0.1 0.1"
+ 
+             animation="
+             property: rotation;
+             from: 0 0 0;
+             to: -360 100 360;
+             easing: linear;
+             dur: 5000;
+             loop: true;
+         "
+             ></a-gltf-model>
+ 
+
+             <!-- Hogwarts-->
+
+            <a-gltf-model
+           
+            position="-60 33 -110" 
+            src="#hogwarts"
+            scale="6 6 6"
+
+            rotation="0 40 0"
+            
+
+            ></a-gltf-model>
+
+
+
+             <!-- Explosion-->
+
+             <a-gltf-model
+           
+             position="-60 20 -110" 
+             src="#explosion"
+             scale="8 8 8"
+ 
+             rotation="0 40 0"
+             
+ 
+             ></a-gltf-model>
+
+
+             <!-- Jukebox-->
+
+             <a-gltf-model
+           
+             position="0 0 -8" 
+             src="#jukebox"
+             scale="2 2 2"
+             rotation="0 -76 0"
+             sound="src: #HarryPotterTheme; on: click"
+
+
+             ></a-gltf-model>
+
+
+
+              <!-- Jukebox-->
+
+              <a-gltf-model
+           
+              position="0 0 30" 
+              src="#snape"
+              scale="20 20 20"
+              rotation="0 190 0"
+
+
+              ></a-gltf-model>
+              
+
+             
+ 
+
+
+
+
+
+
+        </a-scene>
+    </body>
+</html>
